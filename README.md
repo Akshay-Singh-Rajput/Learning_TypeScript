@@ -1,4 +1,6 @@
-# Learn TypeScript
+# Learn TypeScript 
+
+[Learn Typescript](https://www.typescriptlang.org/docs/)
 
 ## Install Typescript globally
    ```
@@ -38,3 +40,11 @@ Then run cmd in terminal
 ```js
 tsc -w //inside src terminal
 ```
+
+# Cheatsheet 
+![image](https://user-images.githubusercontent.com/97354310/174465255-92004a9d-63dd-48fe-8e1c-215b6bd51a1d.png)
+![image](https://user-images.githubusercontent.com/97354310/174465266-9fd5975d-3c79-4430-9da1-a41264c6d98e.png)
+![image](https://user-images.githubusercontent.com/97354310/174465274-0aaa739d-defc-4ff6-be24-2c932270d280.png)
+![image](https://user-images.githubusercontent.com/97354310/174465280-f934d1d2-88cb-4d93-855d-a1bd3ebcc33b.png)
+![image](https://user-images.githubusercontent.com/97354310/174465285-a160bbb4-d089-4991-96f8-458575e7d1e7.png)
+
