@@ -263,7 +263,7 @@ age // string | number
 if(typeof age === 'string') {
     age; // string
 }
-
+```
 [More Example](src/Text.ts)
 [Official Doc](https://www.typescriptlang.org/docs/)
 
