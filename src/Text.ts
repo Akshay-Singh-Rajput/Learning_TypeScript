@@ -1,6 +1,6 @@
 //'name' word is present in ts variable and it not redclare block-soped variable 'name'
 
-// *Variable
+// **<----------------------------- VARIABLE--------------------------------->
 let person = "Akshay"; //default type : string
 let age = 24; //default type : number
 let isGoodPerson = false; //default type : boolean
@@ -15,70 +15,9 @@ age = 26;
 // isGoodPerson = "Yes" //Type 'string' is not assignable to type 'boolean'
 isGoodPerson = true;
 
-// Function
-const circle = (diameter: number) => {
-  return diameter * Math.PI;
-};
 
-// console.log(circle('hello')) //Argument of type 'string' is not assignable to parameter of type 'number'.
-console.log(circle(7.5));
 
-// *arrays
-let names = ["akshay", "ashish", "raja"];
-
-names.push("surya");
-// names.push(3) //Argument of type 'number' is not assignable to parameter of type 'string'.
-// names[0] = 3; //Type 'number' is not assignable to type 'string'.
-// names = 'hello'; //Type 'string' is not assignable to type 'string[]'.
-console.log(names);
-
-let numbers = [10, 20, 30];
-
-numbers.push(40);
-// numbers.push('ak') //Argument of type 'string' is not assignable to parameter of type 'number'.
-// numbers[1] = 'ak' //Type 'string' is not assignable to type 'number'.
-console.log(numbers);
-
-let mixed = ["ak", 10, "ar", 20, 30];
-
-mixed.push("sk");
-mixed.push(40);
-mixed[0] = 3;
-console.log(mixed);
-
-// *objects
-let student = {
-  name: "ashish",
-  learning: "Next.js",
-  age: 26,
-};
-
-student.name = "akshay";
-student.age = 24;
-student.learning = "typescript";
-
-// student.name = 20 //Type 'number' is not assignable to type 'string'.
-// student.age = 'ak' //Type 'string' is not assignable to type 'number'.
-// student.learning = ['react', 'typescript'] //Type 'string[]' is not assignable to type 'string'.
-
-// **Object can't be redeclare in other type, it should be in obj **
-// student = "ak"; //Type 'string' is not assignable to type '{ name: string; learning: string; age: number; }'.
-//student = ["ak"] // Type 'string[]' is missing the following properties from type '{ name: string; learning: string; age: number; }': name, learning, age
-
-student = {
-  name: "surya",
-  learning: "Redux",
-  age: 23,
-};
-
-// student = {
-//     name: "surya",
-//     learning: "Redux",
-//     // age: 23 // Property 'age' is missing in type '{ name: string; learning: string; }' but required in type '{ name: string; learning: string; age: number; }'.
-//    // hobby: "coding" // Type '{ name: string; learning: string; hobby: string; }' is not assignable to type '{ name: string; learning: string; age: number; }'. Object literal may only specify known properties, and 'hobby does not exist in type '{ name: string; learning: string; age: number; }'.
-// }
-
-// **explicit types**
+// **<----------------------------- EXPLICIT TYPES--------------------------------->
 let character: string;
 let group: number;
 let isParticapating: boolean;
@@ -97,7 +36,10 @@ let students: string[] = [];
 
 students.push("ak");
 
-// ** union types **
+
+
+
+// **<----------------------------- UNION TYPES--------------------------------->
 let any: (string | number | boolean)[] = [];
 any.push("hello");
 any.push(0);
@@ -108,13 +50,10 @@ let uid: string | number;
 uid = "123";
 uid = 123;
 
-// **objects**
-let personeOne: object;
-personeOne = { name: "ak", age: 24 };
-personeOne = []; //array is kind of object so it's allowed
-// personeOne = "ak"; //Type 'string' is not assignable to type 'object'.
 
-// ** any **
+
+
+// **<----------------------------- DYANAMIC TYPES / ANY--------------------------------->
 
 let number: any; //or let num : any = 25
 
@@ -146,7 +85,102 @@ console.log(anyObj);
 anyObj = { name: 25, age: "ak" };
 console.log(anyObj);
 
-// **Function **
+
+
+// **<----------------------------- OBJECTS--------------------------------->
+let personeOne: object;
+personeOne = { name: "ak", age: 24 };
+personeOne = []; //array is kind of object so it's allowed
+// personeOne = "ak"; //Type 'string' is not assignable to type 'object'.
+
+let student = {
+  name: "ashish",
+  learning: "Next.js",
+  age: 26,
+};
+
+student.name = "akshay";
+student.age = 24;
+student.learning = "typescript";
+
+// student.name = 20 //Type 'number' is not assignable to type 'string'.
+// student.age = 'ak' //Type 'string' is not assignable to type 'number'.
+// student.learning = ['react', 'typescript'] //Type 'string[]' is not assignable to type 'string'.
+
+// **Object can't be redeclare in other type, it should be in obj **
+// student = "ak"; //Type 'string' is not assignable to type '{ name: string; learning: string; age: number; }'.
+//student = ["ak"] // Type 'string[]' is missing the following properties from type '{ name: string; learning: string; age: number; }': name, learning, age
+
+student = {
+  name: "surya",
+  learning: "Redux",
+  age: 23,
+};
+
+// student = {
+//     name: "surya",
+//     learning: "Redux",
+//     // age: 23 // Property 'age' is missing in type '{ name: string; learning: string; }' but required in type '{ name: string; learning: string; age: number; }'.
+//    // hobby: "coding" // Type '{ name: string; learning: string; hobby: string; }' is not assignable to type '{ name: string; learning: string; age: number; }'. Object literal may only specify known properties, and 'hobby does not exist in type '{ name: string; learning: string; age: number; }'.
+// }
+
+
+
+// **<----------------------------- TUPLES--------------------------------->
+// tuples is once we define a certain position be with certain type we can't change the type and position
+let arr = ["ryu", 25, true];
+
+arr[0] = false;
+arr[1] = "ak";
+arr = [30, false, "ak"];
+
+let tup: [string, number, boolean] = ["ak", 25, true];
+// tup[0] = false //Type 'boolean' is not assignable to type 'string'
+tup[0] = "yoshi";
+
+// tup[1] = 'ak' //Type 'string' is not assignable to type 'number'
+tup[1] = 30;
+
+// tup[2] = 20 //Type 'number' is not assignable to type 'boolean'
+tup[2] = false;
+
+let studentGroup: [string, number];
+studentGroup = ["ak", 12345];
+// studentGroup = [12345, 'ak'] //Type 'string' is not assignable to type 'number'
+
+
+// **<----------------------------- FUNCTIONS--------------------------------->
+
+const circle = (diameter: number) => {
+  return diameter * Math.PI;
+};
+
+// console.log(circle('hello')) //Argument of type 'string' is not assignable to parameter of type 'number'.
+console.log(circle(7.5));
+
+// *arrays
+let names = ["akshay", "ashish", "raja"];
+
+names.push("surya");
+// names.push(3) //Argument of type 'number' is not assignable to parameter of type 'string'.
+// names[0] = 3; //Type 'number' is not assignable to type 'string'.
+// names = 'hello'; //Type 'string' is not assignable to type 'string[]'.
+console.log(names);
+
+let numbers = [10, 20, 30];
+
+numbers.push(40);
+// numbers.push('ak') //Argument of type 'string' is not assignable to parameter of type 'number'.
+// numbers[1] = 'ak' //Type 'string' is not assignable to type 'number'.
+console.log(numbers);
+
+let mixed = ["ak", 10, "ar", 20, 30];
+
+mixed.push("sk");
+mixed.push(40);
+mixed[0] = 3;
+console.log(mixed);
+
 
 let greet: Function;
 
@@ -241,7 +275,9 @@ logDetailsObj = (student: person) => {
 
 console.log(logDetailsObj({ name: "ak", age: 25 }));
 
-// *Classes
+
+
+// **<----------------------------- CLASSES--------------------------------->
 class Invoice {
   // readonly client: string;
   // private details: string;
@@ -267,13 +303,15 @@ class Invoice {
     readonly client: string,
     private details: string,
     public amount: number
-  ) {}
+  ) { }
 
   format() {
     return `${this.client} owes £ ${this.amount} for ${this.details}`;
   }
 }
-// Classes HasFormatter
+
+
+// **<----------------------------- CLASSES HASFORMATER, HASLENGTH--------------------------------->
 
 export interface HasFormatter {
   format(): string;
@@ -284,7 +322,7 @@ class Payment implements HasFormatter {
     readonly recipient: string,
     private details: string,
     public amount: number
-  ) {}
+  ) { }
 
   format() {
     return `${this.recipient} is owed £ ${this.amount} for ${this.details}`;
@@ -315,7 +353,9 @@ invTwo.amount = 400;
 
 console.log(invoices);
 
-// interfaces
+
+
+// **<----------------------------- INTERFACE--------------------------------->
 interface IsPerson {
   name: string;
   age: number;
@@ -341,7 +381,9 @@ const greetPerson = (person: IsPerson) => {
 
 greetPerson(me);
 
-// GENERICS
+
+
+// **<----------------------------- GENERICS--------------------------------->
 // <T> : T -> it's capture whatever item type we passing to the function and it's capture what properties, and whent function return it's know what properties is this Ex= we are returning obj so we can access it like obj
 
 // extends specified what it should pass as a argument, you can specified more. Ex => <T extends object {name : string}>
@@ -356,7 +398,7 @@ let doc = addUID({ name: "Akshay", age: 25 });
 console.log(doc.name);
 
 // ** an Interface defines how an object should look
-// with inrerfaces
+// **<----------------------------- GENERIC WITH INTERFACE--------------------------------->
 interface Resource<T> {
   uid: number;
   resourceName: string;
@@ -376,7 +418,9 @@ const docFour: Resource<string[]> = {
 
 console.log(docThree, docFour);
 
-// ENUMS
+
+
+// **<----------------------------- ENUM--------------------------------->
 // Enums which is a way to specify the scriptive constant and associate each one with a numeric value
 
 enum ResourceType {
@@ -405,24 +449,5 @@ const docSix: ResourceEnum<object> = {
 
 console.log(docFive, docSix);
 
-// *tuples
-// tuples is once we define a certain position be with certain type we can't change the type and position
-let arr = ["ryu", 25, true];
 
-arr[0] = false;
-arr[1] = "ak";
-arr = [30, false, "ak"];
 
-let tup: [string, number, boolean] = ["ak", 25, true];
-// tup[0] = false //Type 'boolean' is not assignable to type 'string'
-tup[0] = "yoshi";
-
-// tup[1] = 'ak' //Type 'string' is not assignable to type 'number'
-tup[1] = 30;
-
-// tup[2] = 20 //Type 'number' is not assignable to type 'boolean'
-tup[2] = false;
-
-let studentGroup: [string, number];
-studentGroup = ["ak", 12345];
-// studentGroup = [12345, 'ak'] //Type 'string' is not assignable to type 'number'
