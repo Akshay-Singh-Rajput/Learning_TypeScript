@@ -265,6 +265,7 @@ if(typeof age === 'string') {
 }
 ```
 [More Example](src/Text.ts)
+
 [Official Doc](https://www.typescriptlang.org/docs/)
 
 ## Cheatsheet Images
