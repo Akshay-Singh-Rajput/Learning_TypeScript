@@ -6,13 +6,13 @@ let age = 24; //default type : number
 let isGoodPerson = false; //default type : boolean
 console.log(person);
 
-// person = 20 //Type 'number' is not assignable to type 'string'
+// person = 20  //*! Error - Type 'number' is not assignable to type 'string'
 person = "Ak";
 
-// age = 'Akshay' //Type 'string' is not assignable to type 'number'
+// age = 'Akshay' //*! Error - Type 'string' is not assignable to type 'number'
 age = 26;
 
-// isGoodPerson = "Yes" //Type 'string' is not assignable to type 'boolean'
+// isGoodPerson = "Yes" //*! Error - Type 'string' is not assignable to type 'boolean'
 isGoodPerson = true;
 
 
@@ -22,13 +22,13 @@ let character: string;
 let group: number;
 let isParticapating: boolean;
 
-// character = 25 //Type 'number' is not assignable to type 'string'.
+// character = 25 //*! Error - Type 'number' is not assignable to type 'string'.
 character = "ak";
 
-// group = 'ak' //Type 'string' is not assignable to type 'number'.
+// group = 'ak' //*! Error - Type 'string' is not assignable to type 'number'.
 group = 25;
 
-// isParticapating = 01 //Type 'number' is not assignable to type 'boolean'.
+// isParticapating = 01 //*! Error - Type 'number' is not assignable to type 'boolean'.
 isParticapating = true;
 
 // ** arrays **
@@ -55,7 +55,7 @@ uid = 123;
 
 // **<----------------------------- DYANAMIC TYPES / ANY--------------------------------->
 
-let number: any; //or let num : any = 25
+let number: any; // **or let num : any = 25
 
 number = 25;
 console.log(number);
@@ -90,8 +90,8 @@ console.log(anyObj);
 // **<----------------------------- OBJECTS--------------------------------->
 let personeOne: object;
 personeOne = { name: "ak", age: 24 };
-personeOne = []; //array is kind of object so it's allowed
-// personeOne = "ak"; //Type 'string' is not assignable to type 'object'.
+personeOne = []; //*! Error - array is kind of object so it's allowed
+// personeOne = "ak"; //*! Error - Type 'string' is not assignable to type 'object'.
 
 let student = {
   name: "ashish",
@@ -103,13 +103,13 @@ student.name = "akshay";
 student.age = 24;
 student.learning = "typescript";
 
-// student.name = 20 //Type 'number' is not assignable to type 'string'.
-// student.age = 'ak' //Type 'string' is not assignable to type 'number'.
-// student.learning = ['react', 'typescript'] //Type 'string[]' is not assignable to type 'string'.
+// student.name = 20 //*! Error - Type 'number' is not assignable to type 'string'.
+// student.age = 'ak' //*! Error - Type 'string' is not assignable to type 'number'.
+// student.learning = ['react', 'typescript'] //*! Error - Type 'string[]' is not assignable to type 'string'.
 
 // **Object can't be redeclare in other type, it should be in obj **
-// student = "ak"; //Type 'string' is not assignable to type '{ name: string; learning: string; age: number; }'.
-//student = ["ak"] // Type 'string[]' is missing the following properties from type '{ name: string; learning: string; age: number; }': name, learning, age
+// student = "ak"; //*! Error - Type 'string' is not assignable to type '{ name: string; learning: string; age: number; }'.
+//student = ["ak"] //*! Error - Type 'string[]' is missing the following properties from type '{ name: string; learning: string; age: number; }': name, learning, age
 
 student = {
   name: "surya",
@@ -120,14 +120,14 @@ student = {
 // student = {
 //     name: "surya",
 //     learning: "Redux",
-//     // age: 23 // Property 'age' is missing in type '{ name: string; learning: string; }' but required in type '{ name: string; learning: string; age: number; }'.
-//    // hobby: "coding" // Type '{ name: string; learning: string; hobby: string; }' is not assignable to type '{ name: string; learning: string; age: number; }'. Object literal may only specify known properties, and 'hobby does not exist in type '{ name: string; learning: string; age: number; }'.
+    // age: 23 // *! Error - Property 'age' is missing in type '{ name: string; learning: string; }' but required in type '{ name: string; learning: string; age: number; }'.
+// hobby: "coding" //*! Error - Type '{ name: string; learning: string; hobby: string; }' is not assignable to type '{ name: string; learning: string; age: number; }'. Object literal may only specify known properties, and 'hobby does not exist in type '{ name: string; learning: string; age: number; }'.
 // }
 
 
 
 // **<----------------------------- TUPLES--------------------------------->
-// tuples is once we define a certain position be with certain type we can't change the type and position
+//** */ tuples is once we define a certain position be with certain type we can't change the type and position
 let arr = ["ryu", 25, true];
 
 arr[0] = false;
@@ -135,18 +135,18 @@ arr[1] = "ak";
 arr = [30, false, "ak"];
 
 let tup: [string, number, boolean] = ["ak", 25, true];
-// tup[0] = false //Type 'boolean' is not assignable to type 'string'
+// tup[0] = false //*! Error - Type 'boolean' is not assignable to type 'string'
 tup[0] = "yoshi";
 
-// tup[1] = 'ak' //Type 'string' is not assignable to type 'number'
+// tup[1] = 'ak' //*! Error - Type 'string' is not assignable to type 'number'
 tup[1] = 30;
 
-// tup[2] = 20 //Type 'number' is not assignable to type 'boolean'
+// tup[2] = 20 //*! Error - Type 'number' is not assignable to type 'boolean'
 tup[2] = false;
 
 let studentGroup: [string, number];
 studentGroup = ["ak", 12345];
-// studentGroup = [12345, 'ak'] //Type 'string' is not assignable to type 'number'
+// studentGroup = [12345, 'ak'] //*! Error - Type 'string' is not assignable to type 'number'
 
 
 // **<----------------------------- FUNCTIONS--------------------------------->
@@ -155,23 +155,23 @@ const circle = (diameter: number) => {
   return diameter * Math.PI;
 };
 
-// console.log(circle('hello')) //Argument of type 'string' is not assignable to parameter of type 'number'.
+// console.log(circle('hello')) //*! Error - Argument of type 'string' is not assignable to parameter of type 'number'.
 console.log(circle(7.5));
 
 // *arrays
 let names = ["akshay", "ashish", "raja"];
 
 names.push("surya");
-// names.push(3) //Argument of type 'number' is not assignable to parameter of type 'string'.
-// names[0] = 3; //Type 'number' is not assignable to type 'string'.
-// names = 'hello'; //Type 'string' is not assignable to type 'string[]'.
+// names.push(3) //*! Error - Argument of type 'number' is not assignable to parameter of type 'string'.
+// names[0] = 3; //*! Error - Type 'number' is not assignable to type 'string'.
+// names = 'hello'; //*! Error - Type 'string' is not assignable to type 'string[]'.
 console.log(names);
 
 let numbers = [10, 20, 30];
 
 numbers.push(40);
-// numbers.push('ak') //Argument of type 'string' is not assignable to parameter of type 'number'.
-// numbers[1] = 'ak' //Type 'string' is not assignable to type 'number'.
+// numbers.push('ak') //*! Error - Argument of type 'string' is not assignable to parameter of type 'number'.
+// numbers[1] = 'ak' //*! Error - Type 'string' is not assignable to type 'number'.
 console.log(numbers);
 
 let mixed = ["ak", 10, "ar", 20, 30];
@@ -184,7 +184,7 @@ console.log(mixed);
 
 let greet: Function;
 
-// greet = "hello" //Type 'string' is not assignable to type 'Function'
+// greet = "hello" //*! Error - Type 'string' is not assignable to type 'Function'
 
 greet = () => {
   console.log("hello world");
@@ -194,27 +194,27 @@ const add = (a: number, b: number) => {
   console.log(a + b);
 };
 add(5, 10);
-// add(5, "10")  //Argument of type 'string' is not assignable to parameter of type 'number'.
-// add(5) //An argument for 'b' was not provided.
+// add(5, "10")  //*! Error - Argument of type 'string' is not assignable to parameter of type 'number'.
+// add(5) //*! Error - An argument for 'b' was not provided.
 
 const sum = (a: number, b: number, c: number | string) => {
   console.log(a + b);
   console.log(c);
-  // console.log(a + b + c); //Operator '+' cannot be applied to types 'number' and 'string | number'.
+  // console.log(a + b + c); //*! Error - Operator '+' cannot be applied to types 'number' and 'string | number'.
 };
-// sum(5, 10) //Expected 3 arguments, but got 2
+// sum(5, 10) //*! Error - Expected 3 arguments, but got 2
 
 const sumTwo = (a: number, b: number, c?: number | string) => {
-  // adding ? it means c arguments is optional or you can pass default value to c  string = 10 //Parameter cannot have question mark and initializer. after adding default value
+  //*! Error -  adding ? it means c arguments is optional or you can pass default value to c  string = 10 //Parameter cannot have question mark and initializer. after adding default value
   console.log(a + b);
   console.log(c);
-  // console.log(a + b + c); //Operator '+' cannot be applied to types 'number' and 'string | number'.
+  // console.log(a + b + c); //*! Error - Operator '+' cannot be applied to types 'number' and 'string | number'.
 };
 sumTwo(5, 10);
 sumTwo(5, 10, "20");
 
 const minus = (a: number, b: number): number => {
-  //  ) : number is showing it's return as a number
+  // ** ) : number is showing it's return as a number
   return a + b;
 };
 
@@ -242,15 +242,15 @@ const greetUserAgain = (user: objWithName) => {
 
 // *Function Types (signatures)*
 
-// Example 1
-let greetTwo: (a: string, b: string) => void; //signature
+//* Example 1
+let greetTwo: (a: string, b: string) => void; //** signature
 
 greetTwo = (name: string, greeting: string) => {
-  //parameters should be according to signature
+  //** parameters should be according to signature
   console.log(`${name} says ${greeting}`);
 };
 
-// Example 2
+// *Example 2
 
 let calc: (a: number, b: number, c: string) => number;
 
@@ -298,7 +298,7 @@ class Invoice {
   // }
 
   //replaced all above with this only
-  //in this cunstrutor we have to specify modifier
+  //in this constructor we have to specify modifier
   constructor(
     readonly client: string,
     private details: string,
@@ -335,20 +335,20 @@ let docTwo: HasFormatter;
 docOne = new Invoice("sk", "fronted-developer", 200);
 docTwo = new Payment("raja", "fronted-developer", 200);
 
-let docs: HasFormatter[] = []; //it will follow Hasformatter type
+let docs: HasFormatter[] = []; //** it will follow Hasformatter type
 docs.push(docOne);
 docs.push(docTwo);
 
 const invOne = new Invoice("mario", "work on the mario website", 250);
 const invTwo = new Invoice("luigi", "work on the luigi website", 300);
 
-let invoices: Invoice[] = []; //Invoice[] means it's only accept Invoice class format
+let invoices: Invoice[] = []; //** Invoice[] means it's only accept Invoice class format
 invoices.push(invOne);
 invoices.push(invTwo);
 
-// We can't change th type but we can change value
-// invOne.client = "yoshi"; //readonly can't change
-//inv.details // private we can't accesses
+//* We can't change th type but we can change value
+// invOne.client = "yoshi"; //* readonly can't change
+//inv.details //* private we can't accesses
 invTwo.amount = 400;
 
 console.log(invoices);
@@ -384,7 +384,7 @@ greetPerson(me);
 
 
 // **<----------------------------- GENERICS--------------------------------->
-// <T> : T -> it's capture whatever item type we passing to the function and it's capture what properties, and whent function return it's know what properties is this Ex= we are returning obj so we can access it like obj
+// <T> : T -> it's capture whatever item type we passing to the function and it's capture what properties, and what function return it's know what properties is this Ex= we are returning obj so we can access it like obj
 
 // extends specified what it should pass as a argument, you can specified more. Ex => <T extends object {name : string}>
 const addUID = <T extends object>(obj: T) => {
@@ -393,7 +393,7 @@ const addUID = <T extends object>(obj: T) => {
 };
 
 let doc = addUID({ name: "Akshay", age: 25 });
-// let docTwo = addUID('hello') //Argument of type 'string' is not assignable to parameter of type 'object'.ts(2345)
+// let docTwo = addUID('hello') //*! Error - Argument of type 'string' is not assignable to parameter of type 'object'.ts(2345)
 
 console.log(doc.name);
 
@@ -421,7 +421,7 @@ console.log(docThree, docFour);
 
 
 // **<----------------------------- ENUM--------------------------------->
-// Enums which is a way to specify the scriptive constant and associate each one with a numeric value
+//** */ Enums which is a way to specify the scriptive constant and associate each one with a numeric value
 
 enum ResourceType {
   BOOK,

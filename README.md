@@ -1,5 +1,7 @@
 # Typescript CheatSheet
-[Learn Typescript](https://www.typescriptlang.org/docs/)
+[Learn Typescript official Doc](https://www.typescriptlang.org/docs/)
+
+[Free code Camp, Best for Beginners](https://www.freecodecamp.org/news/learn-typescript-beginners-guide/amp/)
 
 ## Setup
 Install Ts Globally on your machine
@@ -14,7 +16,7 @@ create the tsconfig.json file
 ```js
 tsc --init
 ```
-set the root(to complie TS files from) and output(for the complied Js files) directories in ***tsconfig.jsx***
+set the root(to compile TS files from) and output(for the complied Js files) directories in ***tsconfig.jsx***
 ```json
 "rootDir" : "./src",
 "outDir" : "./public",
@@ -33,7 +35,7 @@ Compile specified file into specified output file
 ```js
 tsc index.ts --outfile out/script.js
 ```
-if no file is specified , tsc will complie all TS files in the "rootDir" and output in the "outDir". Add -w to watch for changes.
+if no file is specified , tsc will compile all TS files in the "rootDir" and output in the "outDir". Add -w to watch for changes.
 ```js
 tsc -w
 ```
@@ -41,7 +43,7 @@ tsc -w
 ## Strict Mode
 In ***tsconfig.json***, it is recommended to set strict to true. One helpful feature of strict mode is No Implicit Any:
 ```ts
-//Error : Parameter 'a' implicity has an 'any' type
+// * ! Error : Parameter 'a' implicit has an 'any' type
 function logName(a){
     console.log(a.name)
 }
@@ -113,7 +115,7 @@ ids.push("2"); // Error
 Use a union type for arrays with multiple types
 ```ts
 let options : (string | number)[];
-opptions = [10,'up'];
+options = [10,'up'];
 ```
 if a value is assigned, TS will infer types in the array.
 ```ts
@@ -204,13 +206,13 @@ Ts doesn't have access to the Dom, so use the non-null operator, `!`, to tell Ts
 ```ts
 const link = document.querySelector('a)!;
 ```
-If ab element is selected by id or class, we need to tell TS what type of elementit is via Type Casting 
+If ab element is selected by id or class, we need to tell TS what type of element it is via Type Casting 
 ```ts
 const form = document.getElementById('singup-form') as HTMLFormElement;
 ```
 
 ## Generics
-Generics allow for type safety in components where the arguments & return types are unkown ahead of time.
+Generics allow for type safety in components where the arguments & return types are unknown ahead of time.
 ```ts
 interface HasLength {
     length : number;
@@ -221,7 +223,7 @@ const logLength = <T extends HasLength>(a : T) => {
     console.lgo(a.length)
 };
 
-// Ts "captures" the type implicity
+// Ts "captures" the type implict
 loglength('Hello'); //5
 
 // Can also explicitly pass the type to T
